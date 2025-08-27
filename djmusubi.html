@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>DJ Musubi Inspired Site</title>
+		<!-- This is the title that appears in the browser tab -->
+		<!-- Tailwind CSS CDN -->
+		<script src="https://cdn.tailwindcss.com"></script>
+		<!-- Font Awesome for Icons -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+		/>
+		<!-- Google Fonts - Inter -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			body {
+				font-family: "Inter", sans-serif;
+				scroll-behavior: smooth;
+				background-color: #0d0d0d; /* Dark background */
+				color: #f0f0f0; /* Light text */
+			}
+			.hero-background {
+				background-image: url("https://placehold.co/1920x1080/1a1a1a/cccccc?text=Your+Epic+Background+Image");
+				background-size: cover;
+				background-position: center;
+				background-attachment: fixed; /* Parallax effect */
+			}
+			.section-padding {
+				padding-top: 4rem;
+				padding-bottom: 4rem;
+			}
+			.card {
+				background-color: #1a1a1a;
+				border-radius: 0.75rem; /* rounded-xl */
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+				transition: transform 0.2s;
+			}
+			.card:hover {
+				transform: translateY(-5px);
+			}
+			.button-primary {
+				@apply bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300 shadow-lg;
+			}
+			.button-secondary {
+				@apply bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300;
+			}
+		</style>
+	</head>
+	<body class="overflow-x-hidden">
+		<!-- Navigation Bar -->
+		<nav
+			class="fixed top-0 left-0 w-full bg-black bg-opacity-80 z-50 shadow-md"
+		>
+			<div
+				class="container mx-auto px-4 py-3 flex justify-between items-center"
+			>
+				<a href="#" class="text-2xl font-bold text-white tracking-wide"
+					>YOUR BRAND</a
+				>
+				<div class="hidden md:flex space-x-8">
+					<a
+						href="#music"
+						class="text-gray-300 hover:text-white transition-colors duration-200"
+						>Music</a
+					>
+					<a
+						href="#shows"
+						class="text-gray-300 hover:text-white transition-colors duration-200"
+						>Shows</a
+					>
+					<a
+						href="#media"
+						class="text-gray-300 hover:text-white transition-colors duration-200"
+						>Media</a
+					>
+					<a
+						href="#socials"
+						class="text-gray-300 hover:text-white transition-colors duration-200"
+						>Socials</a
+					>
+					<a
+						href="#contact"
+						class="text-gray-300 hover:text-white transition-colors duration-200"
+						>Contact</a
+					>
+				</div>
+				<!-- Mobile Menu Button -->
+				<button
+					id="mobile-menu-button"
+					class="md:hidden text-white focus:outline-none"
+				>
+					<i class="fas fa-bars text-xl"></i>
+				</button>
+			</div>
+			<!-- Mobile Menu -->
+			<div
+				id="mobile-menu"
+				class="hidden md:hidden bg-black bg-opacity-90 py-4"
+			>
+				<div class="flex flex-col items-center space-y-4">
+					<a
+						href="#music"
+						class="text-gray-300 hover:text-white transition-colors duration-200 py-2"
+						onclick="toggleMobileMenu()"
+						>Music</a
+					>
+					<a
+						href="#shows"
+						class="text-gray-300 hover:text-white transition-colors duration-200 py-2"
+						onclick="toggleMobileMenu()"
+						>Shows</a
+					>
+					<a
+						href="#media"
+						class="text-gray-300 hover:text-white transition-colors duration-200 py-2"
+						onclick="toggleMobileMenu()"
+						>Media</a
+					>
+					<a
+						href="#socials"
+						class="text-gray-300 hover:text-white transition-colors duration-200 py-2"
+						onclick="toggleMobileMenu()"
+						>Socials</a
+					>
+					<a
+						href="#contact"
+						class="text-gray-300 hover:text-white transition-colors duration-200 py-2"
+						onclick="toggleMobileMenu()"
+						>Contact</a
+					>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Cover Section -->
+		<header
+			id="home"
+			class="hero-background relative h-screen flex items-center justify-center text-center text-white p-4"
+		>
+			<div class="absolute inset-0 bg-black opacity-60"></div>
+			<div class="relative z-10 max-w-4xl mx-auto">
+				<img
+					src="https://placehold.co/200x200/4a4a4a/ffffff?text=Your+Logo"
+					alt="Artist Logo"
+					class="rounded-full mx-auto mb-6 shadow-xl"
+				/>
+				<h1
+					class="text-5xl md:text-7xl font-extrabold leading-tight mb-4 drop-shadow-lg"
+				>
+					YOUR ARTIST NAME
+				</h1>
+				<p class="text-xl md:text-2xl mb-8 drop-shadow-md">
+					Bringing the beats to your next event!
+				</p>
+				<div
+					class="space-y-4 md:space-y-0 md:space-x-6 flex flex-col md:flex-row justify-center"
+				>
+					<a href="#contact" class="button-primary">Book Now</a>
+					<a
+						href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+						target="_blank"
+						class="button-secondary flex items-center justify-center"
+					>
+						<i class="fab fa-youtube mr-2"></i> Watch Latest Video
+					</a>
+				</div>
+				<div class="mt-8 text-lg md:text-xl">
+					<p>
+						Email:
+						<a
+							href="mailto:info@yourartist.com"
+							class="underline hover:text-purple-300"
+							>info@yourartist.com</a
+						>
+					</p>
+					<p>
+						Phone:
+						<a
+							href="tel:+1234567890"
+							class="underline hover:text-purple-300"
+							>+1 (234) 567-890</a
+						>
+					</p>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<!-- Music Section -->
+			<section id="music" class="section-padding container mx-auto px-4">
+				<h2 class="text-4xl font-bold text-center mb-12">My Music</h2>
+				<div
+					class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+				>
+					<!-- Music Item 1 -->
+					<div
+						class="card p-6 flex flex-col items-center text-center"
+					>
+						<img
+							src="https://placehold.co/200x200/6a0dad/ffffff?text=Album+Art+1"
+							alt="Album Art 1"
+							class="rounded-lg mb-4 shadow-md"
+						/>
+						<h3 class="text-2xl font-semibold mb-2">
+							Track Title One
+						</h3>
+						<p class="text-gray-400 mb-4">Genre: Electronic</p>
+						<a
+							href="https://open.spotify.com/track/YOUR_TRACK_ID_1"
+							target="_blank"
+							class="button-secondary"
+							>Listen on Spotify</a
+						>
+					</div>
+					<!-- Music Item 2 -->
+					<div
+						class="card p-6 flex flex-col items-center text-center"
+					>
+						<img
+							src="https://placehold.co/200x200/6a0dad/ffffff?text=Album+Art+2"
+							alt="Album Art 2"
+							class="rounded-lg mb-4 shadow-md"
+						/>
+						<h3 class="text-2xl font-semibold mb-2">
+							Track Title Two
+						</h3>
+						<p class="text-gray-400 mb-4">Genre: House</p>
+						<a
+							href="https://open.spotify.com/track/YOUR_TRACK_ID_2"
+							target="_blank"
+							class="button-secondary"
+							>Listen on Spotify</a
+						>
+					</div>
+					<!-- Music Item 3 -->
+					<div
+						class="card p-6 flex flex-col items-center text-center"
+					>
+						<img
+							src="https://placehold.co/200x200/6a0dad/ffffff?text=Album+Art+3"
+							alt="Album Art 3"
+							class="rounded-lg mb-4 shadow-md"
+						/>
+						<h3 class="text-2xl font-semibold mb-2">
+							Track Title Three
+						</h3>
+						<p class="text-gray-400 mb-4">Genre: Dubstep</p>
+						<a
+							href="https://open.spotify.com/track/YOUR_TRACK_ID_3"
+                            							target="_blank"
+							class="button-secondary"
+							>Listen on Spotify</a
+						>
+					</div>
+				</div>
+				<div class="text-center mt-12">
+					<a
+						href="https://open.spotify.com/artist/YOUR_ARTIST_ID"
+						target="_blank"
+						class="button-primary"
+						>View All Music</a
+					>
+				</div>
+			</section>
+
+			<!-- Shows Section -->
+			<section
+				id="shows"
+				class="section-padding bg-gray-900 container mx-auto px-4"
+			>
+				<h2 class="text-4xl font-bold text-center mb-12">
+					Upcoming Shows
+				</h2>
+				<div class="space-y-8">
+					<!-- Show Item 1 -->
+					<div
+						class="card p-6 flex flex-col md:flex-row items-center justify-between"
+					>
+						<div class="text-center md:text-left mb-4 md:mb-0">
+							<p class="text-purple-400 text-lg font-semibold">
+								October 26, 2025
+							</p>
+							<h3 class="text-3xl font-bold mb-1">
+								The Grand Venue
+							</h3>
+							<p class="text-gray-400 text-xl">New York, NY</p>
+						</div>
+						<a
+							href="https://www.ticketmaster.com/event/YOUR_EVENT_ID_1"
+							target="_blank"
+							class="button-primary w-full md:w-auto"
+							>Get Tickets</a
+						>
+					</div>
+					<!-- Show Item 2 -->
+					<div
+						class="card p-6 flex flex-col md:flex-row items-center justify-between"
+					>
+						<div class="text-center md:text-left mb-4 md:mb-0">
+							<p class="text-purple-400 text-lg font-semibold">
+								November 10, 2025
+							</p>
+							<h3 class="text-3xl font-bold mb-1">
+								Brooklyn Bowl
+							</h3>
+							<p class="text-gray-400 text-xl">Brooklyn, NY</p>
+						</div>
+						<a
+							href="https://www.axs.com/events/YOUR_EVENT_ID_2"
+							target="_blank"
+							class="button-primary w-full md:w-auto"
+							>Get Tickets</a
+						>
+					</div>
+					<!-- Show Item 3 -->
+					<div
+						class="card p-6 flex flex-col md:flex-row items-center justify-between"
+					>
+						<div class="text-center md:text-left mb-4 md:mb-0">
+							<p class="text-purple-400 text-lg font-semibold">
+								December 5, 2025
+							</p>
+							<h3 class="text-3xl font-bold mb-1">
+								The Fillmore
+							</h3>
+							<p class="text-gray-400 text-xl">
+								San Francisco, CA
+							</p>
+						</div>
+						<a
+							href="https://www.livenation.com/event/YOUR_EVENT_ID_3"
+							target="_blank"
+							class="button-primary w-full md:w-auto"
+							>Get Tickets</a
+						>
+					</div>
+				</div>
+				<div class="text-center mt-12">
+					<a href="#" class="button-primary">See All Shows</a>
+				</div>
+			</section>
+
+			<!-- Media Section -->
+			<section id="media" class="section-padding container mx-auto px-4">
+				<h2 class="text-4xl font-bold text-center mb-12">Media</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<!-- Photo Gallery -->
+					<div class="card p-6">
+						<h3 class="text-3xl font-semibold mb-6 text-center">
+							Photos
+						</h3>
+						<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+							<img
+								src="https://placehold.co/300x200/2b2b2b/ffffff?text=Photo+1"
+								alt="Event Photo 1"
+								class="rounded-lg shadow-md aspect-video object-cover"
+							/>
+							<img
+								src="https://placehold.co/300x200/2b2b2b/ffffff?text=Photo+2"
+								alt="Event Photo 2"
+								class="rounded-lg shadow-md aspect-video object-cover"
+							/>
+							<img
+								src="https://placehold.co/300x200/2b2b2b/ffffff?text=Photo+3"
+								alt="Event Photo 3"
+								class="rounded-lg shadow-md aspect-video object-cover"
+							/>
+							<img
+								src="https://placehold.co/300x200/2b2b2b/ffffff?text=Photo+4"
+								alt="Event Photo 4"
+								class="rounded-lg shadow-md aspect-video object-cover"
+							/>
+							<img
+								src="https://placehold.co/300x200/2b2b2b/ffffff?text=Photo+5"
+								alt="Event Photo 5"
+								class="rounded-lg shadow-md aspect-video object-cover"
+							/>
+							<img
+								src="https://placehold.co/300x200/2b2b2b/ffffff?text=Photo+6"
+								alt="Event Photo 6"
+								class="rounded-lg shadow-md aspect-video object-cover"
+							/>
+						</div>
+						<div class="text-center mt-8">
+							<a href="#" class="button-secondary"
+								>View All Photos</a
+							>
+						</div>
+					</div>
+
+					<!-- Video Gallery -->
+					<div class="card p-6">
+						<h3 class="text-3xl font-semibold mb-6 text-center">
+							Videos
+						</h3>
+						<div class="grid grid-cols-1 gap-4">
+							<!-- Responsive YouTube Embed 1 -->
+							<div
+								class="aspect-video rounded-lg overflow-hidden shadow-md"
+							>
+								<iframe
+									class="w-full h-full"
+									src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen
+								></iframe>
+							</div>
+							<!-- Responsive YouTube Embed 2 -->
+							<div
+								class="aspect-video rounded-lg overflow-hidden shadow-md"
+							>
+								<iframe
+									class="w-full h-full"
+									src="https://www.youtube.com/embed/oG_F0rV505U"
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen
+								></iframe>
+							</div>
+						</div>
+						<div class="text-center mt-8">
+							<a
+								href="https://www.youtube.com/yourchannel"
+								target="_blank"
+								class="button-secondary"
+								>View All Videos</a
+							>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Social Media Section -->
+			<section
+				id="socials"
+				class="section-padding bg-gray-900 container mx-auto px-4"
+			>
+				<h2 class="text-4xl font-bold text-center mb-12">
+					Connect With Me
+				</h2>
+				<div
+					class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 justify-items-center"
+				>
+					<a
+						href="https://www.instagram.com/yourprofile"
+						target="_blank"
+						class="card w-32 h-32 flex flex-col items-center justify-center hover:bg-purple-700 transition-colors duration-300"
+					>
+						<i class="fab fa-instagram text-5xl mb-2"></i>
+						<span class="text-lg font-semibold">Instagram</span>
+					</a>
+					<a
+						href="https://www.facebook.com/yourpage"
+						target="_blank"
+						class="card w-32 h-32 flex flex-col items-center justify-center hover:bg-purple-700 transition-colors duration-300"
+					>
+						<i class="fab fa-facebook-f text-5xl mb-2"></i>
+						<span class="text-lg font-semibold">Facebook</span>
+					</a>
+					<a
+						href="https://twitter.com/yourhandle"
+						target="_blank"
+						class="card w-32 h-32 flex flex-col items-center justify-center hover:bg-purple-700 transition-colors duration-300"
+					>
+						<i class="fab fa-twitter text-5xl mb-2"></i>
+						<span class="text-lg font-semibold">Twitter</span>
+					</a>
+					<a
+						href="https://www.tiktok.com/@youraccount"
+						target="_blank"
+						class="card w-32 h-32 flex flex-col items-center justify-center hover:bg-purple-700 transition-colors duration-300"
+					>
+						<i class="fab fa-tiktok text-5xl mb-2"></i>
+						<span class="text-lg font-semibold">TikTok</span>
+					</a>
+					<a
+						href="https://soundcloud.com/yourartist"
+						target="_blank"
+						class="card w-32 h-32 flex flex-col items-center justify-center hover:bg-purple-700 transition-colors duration-300"
+					>
+						<i class="fab fa-soundcloud text-5xl mb-2"></i>
+						<span class="text-lg font-semibold">SoundCloud</span>
+					</a>
+					<a
+						href="https://open.spotify.com/artist/YOUR_ARTIST_ID"
+						target="_blank"
+						class="card w-32 h-32 flex flex-col items-center justify-center hover:bg-purple-700 transition-colors duration-300"
+					>
+						<i class="fab fa-spotify text-5xl mb-2"></i>
+						<span class="text-lg font-semibold">Spotify</span>
+					</a>
+				</div>
+			</section>
+
+			<!-- Contact Section (linked from Book Now) -->
+			<section
+				id="contact"
+				class="section-padding container mx-auto px-4"
+			>
+				<h2 class="text-4xl font-bold text-center mb-12">
+					Get in Touch / Book Me
+				</h2>
+				<div class="max-w-xl mx-auto card p-8">
+					<p class="text-lg mb-6 text-center text-gray-300">
+						Have a question or want to book me for your next event?
+						Reach out using the form below or directly via
+						email/phone.
+					</p>
+					<form class="space-y-6">
+						<div>
+							<label
+								for="name"
+								class="block text-lg font-medium text-gray-300 mb-2"
+								>Name</label
+							>
+							<input
+								type="text"
+								id="name"
+								name="name"
+								class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white"
+								placeholder="Your Name"
+								required
+							/>
+						</div>
+						<div>
+							<label
+								for="email"
+								class="block text-lg font-medium text-gray-300 mb-2"
+								>Email</label
+							>
+							<input
+								type="email"
+								id="email"
+								name="email"
+								class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white"
+								placeholder="your@email.com"
+								required
+							/>
+						</div>
+						<div>
+							<label
+								for="message"
+								class="block text-lg font-medium text-gray-300 mb-2"
+								>Message</label
+							>
+							<textarea
+								id="message"
+								name="message"
+								rows="5"
+								class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white"
+								placeholder="Tell me about your event or inquiry..."
+								required
+							></textarea>
+						</div>
+						<div class="text-center">
+							<button
+								type="submit"
+								class="button-primary w-full md:w-auto"
+							>
+								Send Message
+							</button>
+						</div>
+					</form>
+					<p class="text-center text-gray-400 mt-8">
+						Alternatively, email me directly at
+						<a
+							href="mailto:info@yourartist.com"
+							class="underline hover:text-purple-300"
+							>info@yourartist.com</a
+						>
+						or call
+						<a
+							href="tel:+1234567890"
+							class="underline hover:text-purple-300"
+							>+1 (234) 567-890</a
+						>.
+					</p>
+				</div>
+			</section>
+		</main>
+
+		<!-- Footer -->
+		<footer class="bg-black py-8 text-center text-gray-500 text-sm">
+			<div class="container mx-auto px-4">
+				<p>&copy; 2025 YOUR ARTIST NAME. All rights reserved.</p>
+				<div class="flex justify-center space-x-4 mt-4">
+					<a
+						href="https://www.instagram.com/yourprofile"
+						target="_blank"
+						class="hover:text-white transition-colors duration-200"
+						><i class="fab fa-instagram text-xl"></i
+					></a>
+					<a
+						href="https://www.facebook.com/yourpage"
+						target="_blank"
+						class="hover:text-white transition-colors duration-200"
+						><i class="fab fa-facebook-f text-xl"></i
+					></a>
+					<a
+						href="https://twitter.com/yourhandle"
+						target="_blank"
+						class="hover:text-white transition-colors duration-200"
+						><i class="fab fa-twitter text-xl"></i
+					></a>
+				</div>
+			</div>
+		</footer>
+
+		<script>
+			// Smooth scrolling for navigation links
+			document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+				anchor.addEventListener("click", function (e) {
+					e.preventDefault();
+					document
+						.querySelector(this.getAttribute("href"))
+						.scrollIntoView({
+							behavior: "smooth",
+						});
+				});
+			});
+
+			// Mobile menu toggle
+			const mobileMenuButton =
+				document.getElementById("mobile-menu-button");
+			const mobileMenu = document.getElementById("mobile-menu");
+
+			function toggleMobileMenu() {
+				mobileMenu.classList.toggle("hidden");
+			}
+
+			mobileMenuButton.addEventListener("click", toggleMobileMenu);
+		</script>
+	</body>
+</html>
